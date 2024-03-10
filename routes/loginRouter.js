@@ -1,11 +1,14 @@
 const express = require("express")
-const router = express.Router()
-const { getLoginController } = require("../controllers/loginController")
-const decorateHtmlResponse = require("../middleware/decorateHtmlResponse")
+const router = express.Router() 
+const decorateHtmlResponse = require("../middleware/decorateHtmlResponse") 
+const { loginGetController } = require("../controllers/loginController")
 
 
 
-router.get("/", decorateHtmlResponse('Login Page'), getLoginController)
+
+router.get("/", decorateHtmlResponse('User Login'), loginGetController )
+
+
 
 
 module.exports = router
