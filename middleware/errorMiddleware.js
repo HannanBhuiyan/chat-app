@@ -8,6 +8,7 @@ const notFoundHandler = (req, res, next) => {
 // default error handler
 const defaultErrorHandler = (err, req, res, next) => {
     
+    // for development error and production error
     res.locals.error = process.env.NODE_ENV === 'development' ? err : { message: err.message};
 
     res.status(err.status || 500)

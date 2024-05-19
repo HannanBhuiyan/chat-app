@@ -4,17 +4,18 @@ const inboxRouter = require("./inboxRouter")
 
 const routes = [
      {
+          path: '/',
+          handler: loginRouter
+     },
+     {
          path: '/inbox',
          handler: inboxRouter
      },
      {
           path: '/users',
           handler: userRouter
-     },
-     {
-          path: '/',
-          handler: loginRouter
-     },
+     }
+    
 ]
 
 

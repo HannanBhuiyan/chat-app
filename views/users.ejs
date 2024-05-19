@@ -31,49 +31,23 @@
             </tr>
           </thead>
           <tbody id="users-table">
-            <tr id="">
-              <td class="name">
-                <img src="./images/user1.png" />
-                <span>User 1</span>
-              </td>
-              <td>email@email.com</td>
-              <td class="manage">
-                <img src="./images/trash.png" alt="Delete" />
-              </td>
-            </tr>
+            <%  allUsers.forEach(user => { %>
+              <tr id="">
+                <td class="name">
+                  <img src="<%= user.avater %>" />
+                  <span><%= user.username %></span>
+                </td>
+                <td><%= user.email %></td>
+                <td class="manage">
+                  <img src="./images/trash.png" alt="Delete" />
+                </td>
+              </tr>
+            <% }); %> 
           </tbody>
         </table>
       </div>
     </div>
 
-    <div class="modal-wrapper" id="add-user-modal">
-      <div class="modal">
-        <a href="#" onclick="closeModal()" class="modal-close">+</a>
-        <div class="modal-title">
-          <h2>Create New User</h2>
-        </div>
-        <div class="modal-body">
-          <form action="/users/signup" method="post" id="add-user-form" enctype="multipart/form-data" >
-          
-            <input type="text" placeholder="Enter name" name="username" />
-            
-            <p class="error">
-              <% error.username && error.username %>
-            </p>
-
-            <input type="text" placeholder="Enter email" name="email" />
-
-            <input type="text" placeholder="Enter mobile" name="mobile" />
-
-            <input type="password" placeholder="Enter password" name="password" />
-
-            <input type="password" placeholder="Enter password" name="confirm_password" />
-
-            <input type="file" name="avater" />
-            <input type="submit" class="modal_btn" value="Submit" />
-          </form>
-        </div>
-      </div>
-    </div>
+   <%- include("partials/add-user-modal.ejs") %>
    
  <%- include('partials/footer.ejs') %>

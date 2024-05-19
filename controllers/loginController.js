@@ -3,15 +3,12 @@ const bcrypt = require('bcrypt');
 
 exports.loginGetController = (req, res, next) => {
 
- 
-
     res.render("login", 
     {
         error: {}
     })
 }
 exports.loginPostController = async (req, res, next) => {
-    
 
     const {password, email} = req.body
 
@@ -43,7 +40,6 @@ exports.loginPostController = async (req, res, next) => {
             return res.redirect('/inbox')
         })
 
- 
 
     } catch (e) {
         res.status(500).send(e)

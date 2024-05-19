@@ -51,12 +51,13 @@ html {
   text-align: center;
 }
 
-/* p.error {
+p.error {
   color: var(--red);
   font-size: 17px;
-  margin-bottom: 15px;
-  margin-top: 9px;
-} */
+  margin-bottom: 16px;
+  margin-top: -12px;
+  display: none;
+}
 
 .show {
   display: block !important;
@@ -72,13 +73,14 @@ input {
   outline: none;
   padding: 15px;
   border: 1px solid var(--dark);
-  color: #fff;
+  color: #000;
   border-radius: 6px;
-  font-size: 1.4rem;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 input.error {
-  border: 1px solid var(--red);
+  border: 2px solid var(--red);
 }
 
 input[type="submit"] {

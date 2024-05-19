@@ -5,7 +5,7 @@ const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const config = require('../config/config')
 const { bindUserWithRequest } = require('../middleware/authMiddleware');
-const setLocals = require("./setLocals");
+const setLocals = require("./setLocals"); 
 
 
 var store = new MongoDBStore({
@@ -26,7 +26,7 @@ const middleware = [
         store: store
     }),
     bindUserWithRequest(),
-    setLocals()
+    setLocals(),
 ]
 
 module.exports = (app) => {

@@ -16,7 +16,8 @@ const peopleSchema = new Schema({
     mobile: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     password: {
         type: String,
@@ -26,6 +27,11 @@ const peopleSchema = new Schema({
     avater: {
         type: String,
         required: true,
+    },
+    role: {
+        type: String,
+        enum : ["admin", "user"],
+        default: "user"
     }
 },{
     timestamps: true

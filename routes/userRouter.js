@@ -7,10 +7,9 @@ const { userGetController, createUserController, logoutController } = require(".
 const { isAuthenticated } = require("../middleware/authMiddleware")
 
 
-router.get('/signup', decorateHtmlResponse('User Page'), isAuthenticated, userGetController)
+router.get('/signup', decorateHtmlResponse('User Registration'), isAuthenticated, userGetController)
 
 router.post("/signup",
-    decorateHtmlResponse('User Registration'),
     upload.single('avater'), 
     signupValidator,
     isAuthenticated,
