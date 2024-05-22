@@ -6,6 +6,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const config = require('../config/config')
 const { bindUserWithRequest } = require('../middleware/authMiddleware');
 const setLocals = require("./setLocals"); 
+const cookieParser = require('cookie-parser')
 
 
 var store = new MongoDBStore({
@@ -18,6 +19,7 @@ const middleware = [
     express.urlencoded({ extended:true }),
     cors(),
     express.static("public"),
+    cookieParser(process.env.COOKIE_SECRET),
     decorateHtmlResponse(),
     session({
         secret: process.env.COOKIE_SECRET || "SECRET_KEY",

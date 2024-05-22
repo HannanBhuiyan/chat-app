@@ -3,13 +3,13 @@ const router = express.Router()
 const decorateHtmlResponse = require("../middleware/decorateHtmlResponse")
 const upload = require("../middleware/uploadMiddleware")
 const signupValidator = require("../validator/auth/signupValidator") 
-const { userGetController, createUserController, logoutController } = require("../controllers/userController")
+const { userGetController, createUserController, logoutController, deleteUser } = require("../controllers/userController")
 const { isAuthenticated } = require("../middleware/authMiddleware")
 
 
-router.get('/signup', decorateHtmlResponse('User Registration'), isAuthenticated, userGetController)
+router.get('/', decorateHtmlResponse('User Registration'), isAuthenticated, userGetController)
 
-router.post("/signup",
+router.post("/",
     upload.single('avater'), 
     signupValidator,
     isAuthenticated,
@@ -17,6 +17,7 @@ router.post("/signup",
 )
 
 router.get('/logout', logoutController)
+router.delete('/delete/:id', deleteUser)
 
 
 module.exports = router
